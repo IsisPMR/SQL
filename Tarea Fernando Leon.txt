@@ -1,0 +1,26 @@
+QUERIES CLASE 
+
+SELECT 
+BK.title  
+FROM bookS BK 
+INNER JOIN AUTHORS ATH
+ON BK.AUTHORID = ATH.id;
+
+
+SELECT firstName,gender FROM authors WHERE gender IS NOT NULL GROUP BY gender HAVING gender !=  'F';
+UPDATE authors SET firstname = 'Paulina' WHERE firstname = 'PauQA';
+
+
+ESTE SE PUEDE HACER BUSCANDO POR ID O COMO EN EL SEGUNDO EJEMPLO POR EL MISMO NOMBRE, PON EL QUE QUIERAS
+DELIMITER //
+CREATE procedure updatename 
+(
+IN idauthor INT,
+IN firstname VARCHAR(30)
+)
+BEGIN
+	UPDATE authors ATH SET ATH.firstname = firstname 
+    WHERE ATH.id = idauthor;
+END //
+DELIMITER ;
+call updatename(2,'nuevoPAULINA');

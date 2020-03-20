@@ -6,9 +6,23 @@ FROM bookS BK
 INNER JOIN AUTHORS ATH
 ON BK.AUTHORID = ATH.id;
 
+// Correcto, el uso de alias es muy bueno para entender mejor la consulta
 
-SELECT firstName,gender FROM authors WHERE gender IS NOT NULL GROUP BY gender HAVING gender !=  'F';
+
+SELECT 
+	firstName,
+	gender 
+FROM authors 
+WHERE gender IS NOT NULL 
+GROUP BY gender 
+HAVING gender !=  'F';
+
+//bien, solo trata de dar una estructura a tu query similar a como la cambié para que sea más legible
+
+
 UPDATE authors SET firstname = 'Paulina' WHERE firstname = 'PauQA';
+
+//bien, nunca olvides el WHERE cuando se usa update o delete ;)
 
 
 ESTE SE PUEDE HACER BUSCANDO POR ID O COMO EN EL SEGUNDO EJEMPLO POR EL MISMO NOMBRE, PON EL QUE QUIERAS
@@ -24,3 +38,8 @@ BEGIN
 END //
 DELIMITER ;
 call updatename(2,'nuevoPAULINA');
+
+//correcto, bien hecho ese Stored Procedure ;)
+
+
+//No olvides realizar algunas Funciones para que practiques ese tema ;) 
